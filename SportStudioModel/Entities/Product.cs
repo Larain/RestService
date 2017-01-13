@@ -5,36 +5,36 @@ namespace SportStudioModel.Entities
     [Serializable]
     public class Product
     {
-        private int id;
-        private double price;
-        private string name;
-        private DateTime createdAt;
+        private int _id;
+        private double _price;
+        private string _name;
+        private DateTime _createdAt;
 
         #region Properties
 
-        public int ID
+        public int Id
         {
-            get { return id; }
+            get { return _id; }
 
-            set { id = value; }
+            set { _id = value; }
         }
 
         public DateTime CreatedAt
         {
-            get { return createdAt; }
-            set { createdAt = value; }
+            get { return _createdAt; }
+            set { _createdAt = value; }
         }
 
         public string Name
         {
-            get { return name; }
-            set { name = value; }
+            get { return _name; }
+            set { _name = value; }
         }
 
         public double Price
         {
-            get { return price; }
-            set { price = value; }
+            get { return _price; }
+            set { _price = value; }
         }
 
         #endregion

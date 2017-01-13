@@ -5,36 +5,36 @@ namespace SportStudioModel.Entities
     [Serializable]
     public class Order
     {
-        private int id;
-        private int customerID;
-        private int managerID;
-        private DateTime createdAt;
+        private int _id;
+        private int _customerId;
+        private int _managerId;
+        private DateTime _createdAt;
 
         #region Properties
 
         public int Id
         {
-            get { return id; }
-            set { id = value; }
+            get { return _id; }
+            set { _id = value; }
         }
 
         public int CustomerId
         {
-            get { return customerID; }
-            set { customerID = value; }
+            get { return _customerId; }
+            set { _customerId = value; }
         }
 
-        public int ManagerID
+        public int ManagerId
         {
-            get { return managerID; }
+            get { return _managerId; }
 
-            set { managerID = value; }
+            set { _managerId = value; }
         }
 
         public DateTime CreatedAt
         {
-            get { return createdAt; }
-            set { createdAt = value; }
+            get { return _createdAt; }
+            set { _createdAt = value; }
         }
 
         #endregion

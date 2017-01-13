@@ -5,55 +5,55 @@ namespace SportStudioModel.Entities
     [Serializable]
     public class OrderItem
     {
-        private int id;
-        private int orderID;
-        private int productID;
-        private decimal quantity;
-        private int pricePerUnit;
-        private DateTime createdAt;
+        private int _id;
+        private int _orderId;
+        private int _productId;
+        private decimal _quantity;
+        private int _pricePerUnit;
+        private DateTime _createdAt;
 
         #region Properties
 
         public int Id
         {
-            get { return id; }
+            get { return _id; }
 
-            set { id = value; }
+            set { _id = value; }
         }
 
-        public int OrderID
+        public int OrderId
         {
-            get { return orderID; }
+            get { return _orderId; }
 
-            set { orderID = value; }
+            set { _orderId = value; }
         }
 
-        public int ProductID
+        public int ProductId
         {
-            get { return productID; }
+            get { return _productId; }
 
-            set { productID = value; }
+            set { _productId = value; }
         }
 
         public decimal Quantity
         {
-            get { return quantity; }
+            get { return _quantity; }
 
-            set { quantity = value; }
+            set { _quantity = value; }
         }
 
         public int PricePerUnit
         {
-            get { return pricePerUnit; }
+            get { return _pricePerUnit; }
 
-            set { pricePerUnit = value; }
+            set { _pricePerUnit = value; }
         }
 
         public DateTime CreatedAt
         {
-            get { return createdAt; }
+            get { return _createdAt; }
 
-            set { createdAt = value; }
+            set { _createdAt = value; }
         }
 
         #endregion

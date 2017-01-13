@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://tonkonozhenko.com/shop/ -->
+<html lang="en" ng-app="shop-app" class="gr__tonkonozhenko_com ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="./Document_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="./Document_files/jquery-3.1.1.min.js.download" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="./Document_files/bootstrap.min.js.download" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="./Document_files/angular.min.js.download"></script>
+
+  <style>
+    body {
+      padding-top: 10px;
+    }
+
+    .tab-pane {
+      padding-top: 10px;
+    }
+  </style>
+<script type="text/javascript" src="chrome-extension://aggiiclaiamajehmlfpkjmlbadmkledi/lib/popup.js" async=""></script><script type="text/javascript" src="chrome-extension://aggiiclaiamajehmlfpkjmlbadmkledi/lib/tat_popup.js" async=""></script></head>
+<body data-gr-c-s-loaded="true">
+
+<div class="container">
+
+  <div class="page-header">
+    <h1>User management</h1>
+    <!--<p class="lead">Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>-->
+  </div>
+
+  <div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="http://tonkonozhenko.com/shop/#all-users" aria-controls="home" role="tab" data-toggle="tab">All
+        users</a></li>
+      <li role="presentation"><a href="http://tonkonozhenko.com/shop/#new-user" aria-controls="profile" role="tab" data-toggle="tab">Add new user</a>
+      </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active ng-scope" id="all-users" ng-controller="UserListController">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <!-- ngRepeat: user in users --><tr ng-repeat="user in users" class="ng-scope">
+            <td class="ng-binding">1</td>
+            <td class="ng-binding">yura</td>
+            <td class="ng-binding">gostwel@gmail.com</td>
+          </tr><!-- end ngRepeat: user in users --><tr ng-repeat="user in users" class="ng-scope">
+            <td class="ng-binding">3</td>
+            <td class="ng-binding">sasha</td>
+            <td class="ng-binding">sasha@boxer.net</td>
+          </tr><!-- end ngRepeat: user in users --><tr ng-repeat="user in users" class="ng-scope">
+            <td class="ng-binding">2</td>
+            <td class="ng-binding">alena</td>
+            <td class="ng-binding">alena@mail.ru</td>
+          </tr><!-- end ngRepeat: user in users --><tr ng-repeat="user in users" class="ng-scope">
+            <td class="ng-binding">0</td>
+            <td class="ng-binding">asdasda</td>
+            <td class="ng-binding">dasdsa@das.com</td>
+          </tr><!-- end ngRepeat: user in users -->
+          </tbody>
+        </table>
+      </div>
+      <div role="tabpanel" class="tab-pane ng-scope" id="new-user" ng-controller="NewUserController">
+        <div class="alert alert-success ng-hide" role="alert" ng-show="showNotice">
+          <b>Well done!</b> You successfully created user.
+        </div>
+
+        <form ng-submit="createUser()" class="ng-pristine ng-valid ng-valid-email">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" id="name" placeholder="Name" ng-model="user.name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-email" id="email" placeholder="Email" ng-model="user.email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control ng-pristine ng-untouched ng-valid ng-empty" id="password" placeholder="Password" ng-model="password">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  var app = angular.module('shop-app', []);
+
+  app.controller('UserListController', function UserListController($scope, $http) {
+    $http.get('http://localhost:35798/WcfRestService.svc/getuserslist').then(function (data) {
+      $scope.users = data.data.GetUsersListResult;
+    });
+  });
+
+  app.controller('NewUserController', function NewUserController($scope, $http) {
+    window.$scope = $scope;
+    window.$http = $http;
+
+    $scope.createUser = function () {
+      $http.post('http://localhost:35798/WcfRestService.svc/newuser' + '?' + $.param({user: $scope.user})).then(function () {
+        $scope.showNotice = true;
+      });
+    }
+  });
+</script>
+
+
+
+</body></html>

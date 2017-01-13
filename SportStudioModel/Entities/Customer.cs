@@ -5,63 +5,63 @@ namespace SportStudioModel.Entities
     [Serializable]
     public class Customer
     {
-        private int id;
-        private string email;
-        private string encryptedPassword;
-        private string phoneNumber;
-        private string name;
-        private DateTime createdAt;
-        private string address;
+        private int _id;
+        private string _email;
+        private string _encryptedPassword;
+        private string _phoneNumber;
+        private string _name;
+        private DateTime _createdAt;
+        private string _address;
 
         #region Properties;
 
         public int Id
         {
-            get { return id; }
+            get { return _id; }
 
-            set { id = value; }
+            set { _id = value; }
         }
 
         public string Email
         {
-            get { return email; }
+            get { return _email; }
 
-            set { email = value; }
+            set { _email = value; }
         }
 
         public string EncryptedPassword
         {
-            get { return encryptedPassword; }
+            get { return _encryptedPassword; }
 
-            set { encryptedPassword = value; }
+            set { _encryptedPassword = value; }
         }
 
         public string PhoneNumber
         {
-            get { return phoneNumber; }
+            get { return _phoneNumber; }
 
-            set { phoneNumber = value; }
+            set { _phoneNumber = value; }
         }
 
         public string Name
         {
-            get { return name; }
+            get { return _name; }
 
-            set { name = value; }
+            set { _name = value; }
         }
 
         public DateTime CreatedAt
         {
-            get { return createdAt; }
+            get { return _createdAt; }
 
-            set { createdAt = value; }
+            set { _createdAt = value; }
         }
 
         public string Address
         {
-            get { return address; }
+            get { return _address; }
 
-            set { address = value; }
+            set { _address = value; }
         }
 
         #endregion

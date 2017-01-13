@@ -5,40 +5,52 @@ namespace SportStudioModel.Entities
     [Serializable]
     public class User
     {
-        private int id;
-        private string name;
-        private string email;
-        private string encryptedPassword;
+        private int _id;
+        private string _name;
+        private string _email;
+        private string _encryptedPassword;
 
+        public User()
+        {
+            
+        }
+
+        public User(int id, string name, string email, string encryptedPassword)
+        {
+            _id = id;
+            _name = name;
+            _email = email;
+            _encryptedPassword = encryptedPassword;
+        }
 
         #region Properties
 
         public int Id
         {
-            get { return id; }
+            get { return _id; }
 
-            set { id = value; }
+            set { _id = value; }
         }
 
         public string Name
         {
-            get { return name; }
+            get { return _name; }
 
-            set { name = value; }
+            set { _name = value; }
         }
 
         public string Email
         {
-            get { return email; }
+            get { return _email; }
 
-            set { email = value; }
+            set { _email = value; }
         }
 
         public string EncryptedPassword
         {
-            get { return encryptedPassword; }
+            get { return _encryptedPassword; }
 
-            set { encryptedPassword = value; }
+            set { _encryptedPassword = value; }
         }
 
         #endregion
